@@ -1,0 +1,570 @@
+/*REQUIRMENTS
+# Front-end Style Guide 
+## Layout The designs were created to the following widths: - Mobile: 375px - Desktop: 1440px ## Typography ### Body Copy - Font size: 18px ### Font - Family: [Public Sans](https: //fonts.google.com/specimen/Public+Sans)
+    - Weights: 300, 400, 700*/
+
+//Variable
+$primary-dark-blue:#2d314d;
+$primary-lime-green:#31d35c;
+$primary-bright-cyan:#2bb7da;
+
+$secondary-grayish-blue:#9698a6;
+$tersiary-light-grayish-blue:#f3f4f6;
+$color-very-light-gray: #fafafa;
+$color-white:#ffffff;
+
+
+////SCREEN
+
+$bp-large:1000px;
+$bp-medium:768px;
+$bp-small:651px;
+$bp-xsmall:426px;
+
+
+//Deafult styles
+* {
+    margin: 0;
+    padding: 0;
+    // box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: public sans;
+}
+
+body {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+.container {
+    margin: 0 13.6rem;
+
+    @media screen and (max-width:$bp-large) {
+        margin: 0 5.6rem;
+    }
+
+}
+
+.nav__reponsive {
+    @media screen and (max-width:$bp-medium) {
+        display: none;
+    }
+}
+
+/////Responsive Bar
+.hamburger {
+    cursor: pointer;
+    display: none;
+
+
+
+    @media screen and (max-width:$bp-medium) {
+        display: block;
+
+    }
+}
+
+.is__open {
+    display: block;
+}
+
+.is__hidden {
+    display: none !important;
+
+
+}
+
+///Re Usable Component
+.nav__btn {
+    border: none;
+    background-image: linear-gradient(to right, $primary-lime-green, $primary-bright-cyan);
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    color: $color-white;
+    transition: opacity .4s;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .7;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+
+}
+
+.secondary__title {
+    color: $primary-dark-blue;
+    font-weight: 300;
+
+}
+
+.paragraph {
+    color: $secondary-grayish-blue;
+    font-size: 1.6rem;
+    line-height: 1.5;
+
+}
+
+.tersiary__title {
+    color: $primary-dark-blue;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.quaternary__title {
+    color: $primary-dark-blue;
+    font-weight: 500;
+    width: 80%;
+    transition: color .3s;
+    cursor: pointer;
+
+    @media screen and (max-width: $bp-xsmall) {
+        display: block;
+        margin: 0 auto;
+
+    }
+
+
+    &:hover {
+        color: $primary-bright-cyan;
+    }
+}
+
+//////Header Section
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1.5rem 2rem;
+    background-color: $color-white;
+    z-index: 100;
+    position: relative;
+
+
+    &__item {
+        padding-left: 2rem;
+        font-weight: 400;
+
+        @media screen and (max-width:$bp-medium) {
+            margin: 2rem auto 2rem auto;
+            padding-left: 0;
+
+
+        }
+    }
+
+    &__content {
+        display: flex;
+        list-style: none;
+
+        @media screen and (max-width:$bp-medium) {
+
+            position: absolute;
+            flex-direction: column;
+            top: 110%;
+            // left: 50%;
+            background-color: $color-very-light-gray;
+            width: 100%;
+            // z-index: 1000;
+            border-radius: 1rem;
+
+
+        }
+
+
+
+        a {
+            text-decoration: none;
+            color: $secondary-grayish-blue;
+            transition: color .3s;
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                flex-direction: column;
+                height: .5rem;
+                width: 100%;
+                background-image: linear-gradient(to right, $primary-lime-green, $primary-bright-cyan);
+                opacity: 0;
+                transition: all .3s;
+                position: absolute;
+                bottom: -2.3rem;
+            }
+
+            &:hover::after,
+            &:hover {
+                opacity: 1;
+                color: $primary-dark-blue;
+
+            }
+        }
+    }
+
+}
+
+/////Hero Section
+.hero {
+    background-color: $color-very-light-gray;
+    position: relative;
+
+    .hero__wraper {
+        display: flex;
+        height: 90vh;
+        // position: relative;
+        align-items: end;
+        margin-left: 13.6rem;
+        flex-wrap: wrap;
+
+        @media screen and (max-width:$bp-large) {
+            margin-left: 5.6rem;
+        }
+
+        @media screen and (max-width:$bp-medium) {
+            // flex-direction: column-reverse;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width:$bp-small) {
+            flex-direction: column-reverse;
+
+        }
+
+        @media screen and (max-width:$bp-xsmall) {
+            text-align: center;
+            margin-left: 2rem;
+        }
+
+
+        .hero__content {
+            flex: 0 0 50%;
+
+            margin: auto 0;
+
+            @media screen and (max-width:$bp-medium) {
+                align-self: center;
+                margin: 2rem 0;
+            }
+
+
+
+            &>* {
+                margin-bottom: 2.5rem;
+            }
+
+            .primary__title {
+                color: $primary-dark-blue;
+                font-size: 3rem;
+                font-weight: 400;
+
+            }
+
+
+        }
+
+        .hero__image {
+            flex: 0 0 50%;
+            background-image: url('img/bg-intro-desktop.svg');
+            background-size: auto 80%;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+
+            @media screen and (max-width:$bp-medium) {
+                width: 100%;
+                background-size: cover;
+
+                // position: unset;
+            }
+
+            @media screen and (max-width:$bp-small) {
+                flex: 1 0 0;
+                // overflow: unset;
+
+
+            }
+
+            img {
+                position: relative;
+                width: 90%;
+                right: -15rem;
+                top: -9rem;
+
+                @media screen and (max-width:$bp-medium) {
+                    width: 100%;
+
+                }
+
+                @media screen and (max-width:$bp-small) {
+                    width: 50%;
+
+                    display: block;
+
+                    margin: 0 auto;
+                    right: 0;
+                    top: 0;
+                }
+
+            }
+        }
+    }
+}
+
+/////Feature Section
+.features {
+    background-color: $tersiary-light-grayish-blue;
+    z-index: -100;
+    position: relative;
+    margin-left: 0;
+}
+
+.features__area {
+    padding-top: 8rem;
+
+    @media screen and (max-width:$bp-xsmall) {
+        text-align: center;
+
+    }
+
+}
+
+.features__content {
+    width: 40%;
+
+    &>* {
+        margin-bottom: 2.5rem;
+    }
+
+    @media screen and (max-width:$bp-large) {
+        width: 80%;
+    }
+
+    @media screen and (max-width:$bp-xsmall) {
+        width: 100%;
+    }
+
+}
+
+.features__item {
+    display: flex;
+    // margin: 2rem 0;
+    padding-bottom: 5rem;
+
+    @media screen and (max-width:$bp-large) {
+        flex-wrap: wrap;
+    }
+
+    &>* {
+        flex: 0 0 25%;
+
+        @media screen and (max-width:$bp-large) {
+            flex: 0 0 45%;
+            margin-bottom: 3rem;
+        }
+
+        @media screen and (max-width:$bp-xsmall) {
+            flex: 0 0 100%;
+        }
+
+        &:not(:last-child) {
+            margin-right: 3rem;
+
+            @media screen and (max-width:$bp-large) {
+                margin-right: 2rem;
+            }
+        }
+
+    }
+
+    .item__logo {
+        margin: 2rem 0;
+    }
+}
+
+//////Aricle Section
+.artical {
+    background-color: $color-very-light-gray;
+}
+
+.artical__area {
+    &>* {
+        padding-top: 4rem;
+    }
+
+    .card__wrapper {
+        display: flex;
+        padding-bottom: 5rem;
+
+        &>*:not(:last-child) {
+            margin-right: 1rem;
+
+            @media screen and (max-width: $bp-large) {
+                margin-right: 2rem;
+            }
+        }
+
+        @media screen and (max-width: $bp-large) {
+            flex-wrap: wrap;
+        }
+
+        @media screen and (max-width:$bp-xsmall) {
+            text-align: center;
+        }
+    }
+
+    .card {
+        flex: 0 0 25%;
+
+        @media screen and (max-width: $bp-large) {
+            flex: 0 0 45%
+        }
+
+        @media screen and (max-width: $bp-xsmall) {
+            flex: 0 0 100%;
+            margin-bottom: 2rem;
+        }
+
+        &__header {
+            height: 40%;
+        }
+
+        &__image {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: .5rem .5rem 0 0;
+        }
+
+        &__body {
+            padding: 1.5rem;
+            background-color: $color-white;
+            border-radius: .5rem;
+
+
+
+
+            &>* {
+                padding: .5rem 0;
+            }
+        }
+
+        &__author {
+            font-size: 1.2rem;
+            color: $secondary-grayish-blue;
+        }
+
+        &__description {
+            font-size: 1.4rem;
+            color: $secondary-grayish-blue;
+            line-height: 1.3;
+        }
+    }
+}
+
+/////////Footer
+.footer {
+    background-color: $primary-dark-blue;
+    padding: 4rem 0;
+}
+
+.logo-white {
+    & {
+        @media screen and (max-width:$bp-medium) {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.footer__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    // align-items: flex-end
+    @media screen and (max-width:$bp-medium) {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &>* {
+        @media screen and (max-width:$bp-medium) {
+            margin-bottom: .7rem;
+        }
+    }
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+
+
+    .social__icon {
+        display: flex;
+        list-style: none;
+
+        li {
+            padding-right: 1rem;
+        }
+    }
+}
+
+.links-first {
+    @media screen and (max-width:$bp-medium) {
+        position: relative;
+        left: -1.3rem;
+    }
+}
+
+.links {
+    list-style: none;
+
+    li {
+        padding: .5rem 0;
+
+    }
+
+}
+
+.link__item {
+    text-decoration: none;
+    color: $color-very-light-gray;
+    transition: color .3s;
+    font-size: 1.4rem;
+
+    &:hover {
+        color: $primary-bright-cyan;
+    }
+
+
+}
+
+.copyright {
+    margin-top: 1rem;
+    color: $secondary-grayish-blue;
+    font-size: 1.2rem;
+    font-weight: 300;
+
+}
+
+.cta {
+    &__btn {
+        position: relative;
+        left: 4rem;
+
+        @media screen and (max-width:$bp-medium) {
+            left: 5rem;
+        }
+    }
+
+
+}
